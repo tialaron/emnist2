@@ -20,10 +20,9 @@ st.write("""
 функционирование реальной нейронной сети, обученной распознавать рукописные буквы. Для обучения использовалась база EMNIST, содержащая буквы латинского алфавита.
 [EMNIST](https://www.nist.gov/itl/products-and-services/emnist-dataset)
 """)
-
-with st.expander('Рассмотрим как выглядят буквы и цифры из базы'):
-    image = Image.open('numbersletters.jpg')
-    st.image(image)
+st.write('Вот так выглядят буквы и цифры из базы')
+image = Image.open('/app/emnist2/pictures/numbersletters.jpg')
+st.image(image)
 
 with st.expander("Общая схема"):
   img_pipeline_mnist = Image.open('/app/emnist2/pictures/pipeline_for_MNIST_4.png') 
