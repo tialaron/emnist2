@@ -114,14 +114,6 @@ with col2:
             
 
 if choice1 == 'Видео' and img_file_buffer is not None: 
-            img = Image.open(img_file_buffer)
-            img_array = np.array(img)
-            img_height, img_width = img_array.shape[0], img_array.shape[1]
-            img_center = int(img_width / 2)
-            left_border = int(img_center - img_height / 2)
-            right_border = int(img_center + img_height / 2)
-            img_array1 = img_array[:, left_border:right_border, :]
-            im = Image.fromarray(img_array1)
             im.save(file_path)
 if choice1 == 'Изображения':
             img.save(file_path)
