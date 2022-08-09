@@ -86,7 +86,7 @@ dictant1 = {0:'0' , 1:'1' , 2:'2' , 3:'3' , 4:'4' , 5:'5' , 6:'6' , 7:'7' , 8:'8
 st.subheader('Пункт 1.')
 st.write('Вам предоставляется на выбор два варианта выполнения работы.'
          ' Вы можете самостоятельно сделать фотоснимок буквы/цифры (левая колонка), либо воспользоваться готовыми изображенями (правая колонка).')
-choice1 = st.radio("Видео или готовые изображения?",('Изображения', 'Видео'))
+choice1 = st.radio("Видео или готовые изображения?",('Видео', 'Изображения'))
 
 col1,col2 = st.columns(2)
 with col1:
@@ -102,8 +102,7 @@ with col1:
             right_border = int(img_center + img_height / 2)
             img_array1 = img_array[:, left_border:right_border, :]
             im = Image.fromarray(img_array1)
-            if choice1 == 'Видео' and img_file_buffer is not None: 
-                        im.save(file_path)
+
 with col2:
             st.write('Вы можете выбрать любое изображение из предложенных ниже.')
             option1 = st.selectbox('Какое Вы выбираете?',('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H',
@@ -113,14 +112,14 @@ with col2:
             img = Image.open(pict_path)
             st.image(pict_path)
             
-            if choice1 == 'Изображения' and img_file_buffer == None:
-                        #pict_path = '/app/emnist2/test_pict/foto'+option1+'.png'
-                        #img = Image.open(pict_path)
-                        #st.image(pict_path)
-                        
-                        img.save(file_path)
-            
 
+if choice1 == 'Видео' and img_file_buffer is not None: 
+            im.save(file_path)
+if choice1 == 'Изображения' and img_file_buffer == None:
+            img.save(file_path)
+            
+            
+            
 col21 , col22 = st.columns(2)
 with col21:
     with st.container():
