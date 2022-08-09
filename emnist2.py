@@ -113,9 +113,9 @@ with col2:
             #st.image(pict_path)
             
 
-if choice1 == 'Видео' and img_file_buffer is not None: 
+if choice1 == 'Видео': 
             im.save(file_path)
-if choice1 == 'Изображения' and img_file_buffer == None:
+if choice1 == 'Изображения':
             img.save(file_path)
             
             
