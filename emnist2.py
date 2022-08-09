@@ -143,6 +143,7 @@ col3, col4 = st.columns(2)
 with col3:      
               st.write('Вот что увидела нейронная сеть.')
               if isbutton1:
+                          file_path = '/app/emnist2/your_file_image.png'
                           image11 = Image.open(file_path)
                           st.image(file_path) 
                           img11 = image11.resize((28, 28), Image.LANCZOS)   
