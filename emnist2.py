@@ -5,9 +5,20 @@ from PIL import Image,  ImageEnhance, ImageFilter #Отрисовка изобр
 from img_preproc import img_preprocess
 
 model_2d = load_model('/app/emnist2/model_emnist.h5')
+file_path = '/app/emnist2/your_file_image.png'
 
-st.set_page_config(layout="wide")
-st.header("Распознавание букв с помощью нейронной сети")
+#st.set_page_config(layout="wide")
+st.markdown('''<h1 style='text-align: center; color: #F64A46;'
+            >Распознавание рукописных букв искусственной нейронной сетью (ИНС)</h1>''', 
+            unsafe_allow_html=True)
+
+img_start = Image.open('/app/emnist2/pictures/start_picture.png') #
+st.image(img_start, use_column_width='auto') #width=450
+
+st.write("""
+Лабораторная работа *"Распознавание рукописных букв искусственной нейронной сетью (ИНС)"* позволяет продемонстрировать 
+функционирование реальной нейронной сети, обученной распознавать рукописные буквы.
+""")
 
 with st.expander('Рассмотрим как выглядят буквы и цифры из базы'):
     image = Image.open('numbersletters.jpg')
