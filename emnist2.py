@@ -92,7 +92,7 @@ col1,col2 = st.columns(2)
 with col1:
             st.write('Одной рукой поднесите карточку с изображением к видеокамере так, чтобы она занимала большую часть экрана,'
                      ' а другой рукой возьмите мышь и щёлкните на кнопку под изображением')
-            img_file_buffer = st.camera_input("Take picture")
+            #img_file_buffer = st.camera_input("Take picture")
             
             #img = Image.open(img_file_buffer)
             #img_array = np.array(img)
