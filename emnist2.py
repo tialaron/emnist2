@@ -90,27 +90,27 @@ choice1 = st.radio("Видео или готовые изображения?",('
 
 col1,col2 = st.columns(2)
 with col1:
-            st.write('Одной рукой поднесите цифру к видеокамере так, чтобы она занимала большую часть экрана,'
+            st.write('Одной рукой поднесите карточку с изображением к видеокамере так, чтобы она занимала большую часть экрана,'
                      ' а другой рукой возьмите мышь и щёлкните на кнопку под изображением')
-            img_file_buffer = st.camera_input("Take picture")
-            #if choice1 == 'Видео':
-            img = Image.open(img_file_buffer)
-            img_array = np.array(img)
-            img_height, img_width = img_array.shape[0], img_array.shape[1]
-            img_center = int(img_width / 2)
-            left_border = int(img_center - img_height / 2)
-            right_border = int(img_center + img_height / 2)
-            img_array1 = img_array[:, left_border:right_border, :]
-            im = Image.fromarray(img_array1)
+            #img_file_buffer = st.camera_input("Take picture")
+            
+            #img = Image.open(img_file_buffer)
+            #img_array = np.array(img)
+            #img_height, img_width = img_array.shape[0], img_array.shape[1]
+            #img_center = int(img_width / 2)
+            #left_border = int(img_center - img_height / 2)
+            #right_border = int(img_center + img_height / 2)
+            #img_array1 = img_array[:, left_border:right_border, :]
+            #im = Image.fromarray(img_array1)
 
 with col2:
             st.write('Вы можете выбрать любое изображение из предложенных ниже.')
-            option1 = st.selectbox('Какое Вы выбираете?',('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H',
-                                                                'I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                                                                'a','b','d','e','f','g','h','n','q','r','t'))
-            pict_path = '/app/emnist2/test_pict/foto'+option1+'.png'
-            img = Image.open(pict_path)
-            st.image(pict_path)
+            #option1 = st.selectbox('Какое Вы выбираете?',('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H',
+            #                                                    'I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+            #                                                    'a','b','d','e','f','g','h','n','q','r','t'))
+            #pict_path = '/app/emnist2/test_pict/foto'+option1+'.png'
+            #img = Image.open(pict_path)
+            #st.image(pict_path)
             
 
 if choice1 == 'Видео' and img_file_buffer is not None: 
