@@ -102,7 +102,7 @@ with col1:
             right_border = int(img_center + img_height / 2)
             img_array1 = img_array[:, left_border:right_border, :]
             im = Image.fromarray(img_array1)
-            if choice1 == 'Видео' and img_file_buffer not None: 
+            if choice1 == 'Видео' and img_file_buffer is not None: 
                         im.save(file_path)
 with col2:
             st.write('Вы можете выбрать любое изображение из предложенных ниже.')
