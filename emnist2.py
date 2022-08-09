@@ -171,7 +171,7 @@ with col6:
 
 st.write('Пункт 5.')
 st.write('Нажмите на кнопку распознавания, запишите результат.')
-isbutton2 = st.button('Распознать еще картнку')
+isbutton2 = st.button('Распознать еще картинку')
 col7,col8 = st.columns(2)
 with col7:
              if isbutton2:
