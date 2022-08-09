@@ -5,7 +5,9 @@ from PIL import Image,  ImageEnhance, ImageFilter #Отрисовка изобр
 from img_preproc import img_preprocess
 
 model_2d = load_model('/app/emnist2/model_emnist.h5')
-file_path = '/app/emnist2/your_file_image.png'
+file_path = '/app/emnist2/test_pict/foto0.png'
+
+
 
 #st.set_page_config(layout="wide")
 st.markdown('''<h1 style='text-align: center; color: #F64A46;'
