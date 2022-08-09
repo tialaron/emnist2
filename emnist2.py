@@ -190,7 +190,7 @@ with col8:
                    imgData1 = np.expand_dims(thresholdedData, axis=0)
                    y_predict1 = model_2d.predict(imgData1)
                    y_maxarg = np.argmax(y_predict1, axis=1)
-                   st.subheader(int(y_maxarg))  
+                   st.subheader(dictant1[int(y_maxarg)])  
 
 st.write('Пункт 6.')
 st.write('Скорректируйте изображение с помощью фильтра Гаусса. Нажмите на кнопку распознавания, запишите результат.')
@@ -225,7 +225,7 @@ with col12:
                    imgData5 = np.expand_dims(thresholdedData, axis=0)
                    y_predict2 = model_2d.predict(imgData5)
                    y_maxarg2 = np.argmax(y_predict2, axis=1)
-                   st.subheader(int(y_maxarg2)) 
+                   st.subheader(dictant1[int(y_maxarg)]) 
                     
 st.write('Пункт 8.')
 st.write('Сделайте выводы, какие именно фильтры и как влияют на результат эксперимента')
