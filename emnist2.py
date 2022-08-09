@@ -6,7 +6,7 @@ from img_preproc import img_preprocess
 import os
 
 model_2d = load_model('/app/emnist2/model_emnist.h5')
-
+file_path = '/app/emnist2/your_file_image.png'
 
 
 #st.set_page_config(layout="wide")
@@ -123,10 +123,8 @@ if choice1 == 'Видео' and img_file_buffer is not None:
             right_border = int(img_center + img_height / 2)
             img_array1 = img_array[:, left_border:right_border, :]
             im = Image.fromarray(img_array1)
-            file_path = '/app/emnist2/your_file_image.png'
             im.save(file_path)
 if choice1 == 'Изображения':
-            file_path = '/app/emnist2/your_file_image.png'
             img_pict.save(file_path)
             
             
@@ -166,7 +164,6 @@ col5,col6 = st.columns(2)
 with col5:
          value_sli = st.slider('Коррекция яркости', 0.0, 100.0, 50.0)
 with col6:
-         file_path = '/app/emnist2/your_file_image.png'
          st.write('Яркость',value_sli)
          image111 = Image.open(file_path)
          enhancer = ImageEnhance.Brightness(image111)
