@@ -5,7 +5,7 @@ from PIL import Image,  ImageEnhance, ImageFilter #Отрисовка изобр
 from img_preproc import img_preprocess
 
 model_2d = load_model('/app/emnist2/model_emnist.h5')
-file_path = '/app/emnist2/test_pict/foto0.png'
+file_path = '/app/emnist2/your_file_img.png'
 
 
 
