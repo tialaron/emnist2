@@ -4,6 +4,8 @@ import numpy as np
 from PIL import Image,  ImageEnhance, ImageFilter #Отрисовка изображений
 import img_preproc
 
+model_2d = load_model('/app/emnist2/model_emnist.h5')
+
 st.set_page_config(layout="wide")
 st.header("Распознавание букв с помощью нейронной сети")
 
