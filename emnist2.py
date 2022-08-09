@@ -1,7 +1,7 @@
 import streamlit as st
 from tensorflow.keras.models import load_model
 import numpy as np
-from PIL import Image #Отрисовка изображений
+from PIL import Image,  ImageEnhance, ImageFilter #Отрисовка изображений
 
 st.set_page_config(layout="wide")
 st.header("Распознавание букв с помощью нейронной сети")
