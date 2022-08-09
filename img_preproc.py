@@ -1,4 +1,5 @@
 import numpy as np
+from PIL import Image
 
 def img_preprocess(img):
     # To convert PIL Image to numpy array:
