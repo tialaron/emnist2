@@ -151,38 +151,116 @@ with col4:
                           y_predict1 = model_2d.predict(imgData1) 
                           y_maxarg = np.argmax(y_predict1, axis=1)
                           st.subheader(dictant1[int(y_maxarg)])
+         
+
+
+st.write('Пункт 4.')
+st.write('Включите коррекцию яркости. Посмотрите, улучшило ли это изображение негатива.'
+         ' Зарисуйте результат, как указано выше.')
+col5,col6 = st.columns(2)
+with col5:
+         value_sli = st.slider('Коррекция яркости', 0.0, 100.0, 50.0)
+with col6:
+         st.write('Яркость',value_sli)
+         image111 = Image.open(file_path)
+         enhancer = ImageEnhance.Brightness(image111)
+         factor = 2*value_sli / 100 #фактор изменения
+         im_output = enhancer.enhance(factor)
+         im_output.save(file_path)
+         st.image(file_path)   
+
+st.write('Пункт 5.')
+st.write('Нажмите на кнопку распознавания, запишите результат.')
+isbutton2 = st.button('Распознать еще картнку')
+col7,col8 = st.columns(2)
+with col7:
+             if isbutton2:
+                   st.image(file_path)
+with col8:
+             if isbutton2:
+                   image112 = Image.open(file_path)
+                   img111 = image112.resize((28, 28), Image.LANCZOS)  
+                   img121 = img111.convert("L")
+                   imgData = np.asarray(img121)
+                   step_lobe = value_sli / 100
+                   mid_img_color = np.sum(imgData) / imgData.size
+                   min_img_color = imgData.min()
+                   THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+                   thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
+                   imgData1 = np.expand_dims(thresholdedData, axis=0)
+                   y_predict1 = model_2d.predict(imgData1)
+                   y_maxarg = np.argmax(y_predict1, axis=1)
+                   st.subheader(int(y_maxarg))  
+
+st.write('Пункт 6.')
+st.write('Скорректируйте изображение с помощью фильтра Гаусса. Нажмите на кнопку распознавания, запишите результат.')
+col9,col10 = st.columns(2)
+with col9:
+            value_gaus = st.slider('Фильтр Гаусса', 0, 10, 0)
+with col10:
+            st.write('Фильтр Гаусса',value_gaus)
+            image222 = Image.open(file_path)
+            im2 = image222.filter(ImageFilter.GaussianBlur(radius = value_gaus))
+            im2.save(file_path)
+            st.image(file_path)
             
-col21 , col22 = st.columns(2)
-with col21:
-    with st.container():
-        st.subheader("Распознавание букв из тестовой выборки")
-        y_test_2D_pred = model_2d.predict(x_test_2D)
-        y_test_2D_pred
-
-
-with col22:
-    with st.container():
-        st.subheader("Распознавание фото")
-        img_file_buffer = st.camera_input("Фото")
-
-        if img_file_buffer is not None:
-            # To read image file buffer as a PIL Image:
-            img = Image.open(img_file_buffer)
-
-            # To convert PIL Image to numpy array:
-            img_array = np.array(img)
-
-            mnist_like = img_preprocess(img_array)
-
-            #st.write(imgData1)
-
-            y_predict1 = model_2d.predict(mnist_like)
-            y_maxarg = np.argmax(y_predict1, axis=1)
-
-            st.write(y_predict1)
-            st.write('Нейронная сеть считает, что это ', dictant1[int(y_maxarg)] )
-            #st.subheader(dictant1[y_maxarg])
-
-
+st.write('Пункт 7.')
+st.write('Попробуем теперь еще раз распознать картинку.')
+isbutton3 = st.button('Распознать картнку еще раз')
+col11,col12 = st.columns(2)
+with col11:
+            if isbutton3:
+                   st.image(file_path)
+with col12:
+            if isbutton3:
+                   image333 = Image.open(file_path)
+                   img333 = image333.resize((28, 28), Image.LANCZOS) 
+                   img334 = img333.convert("L")
+                   imgData4 = np.asarray(img334) 
+                   step_lobe = value_sli / 100
+                   mid_img_color = np.sum(imgData4) / imgData4.size
+                   min_img_color = imgData4.min()
+                   THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+                   thresholdedData = (imgData4 < THRESHOLD_VALUE) * 1.0
+                   imgData5 = np.expand_dims(thresholdedData, axis=0)
+                   y_predict2 = model_2d.predict(imgData5)
+                   y_maxarg2 = np.argmax(y_predict2, axis=1)
+                   st.subheader(int(y_maxarg2)) 
+                    
+st.write('Пункт 8.')
+st.write('Сделайте выводы, какие именно фильтры и как влияют на результат эксперимента')
+st.write('Пункт 9.')
+st.write('Посмотрим как "видит" картинку нейронная сеть')
+col13,col14 = st.columns(2)
+with col13:
+         value_thres = st.slider('Порог отсечки', 0, 100, 50)
+with col14:
+         st.write('Порог отсечки',value_thres)
+         image444 = Image.open(file_path)
+         i2 = image444.convert("L")
+         i3 = np.asarray(i2)
+         step_lobe = value_thres / 100
+         mid_img_color = np.sum(i3) / i3.size
+         min_img_color = i3.min()
+         THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+         thresholdedData = (i3 < THRESHOLD_VALUE) * 255.0
+         imm1 = Image.fromarray(thresholdedData)
+         imm1 = imm1.convert("L")
+         imm1.save(file_path)
+         st.write(imm1) 
+         st.image(file_path)
+       
+st.write('Пункт 10. ')
+st.write('Ответьте на вопросы. ')
+st.write('1. Распознала ли нейронная сеть цифру с первого раза? ')
+st.write('2. Как повлияло изменение яркости на результат? (Улучшило/Ухудшило/Никак не повлияло) ')
+st.write('3. Как повлияло применение фильтра Гаусса на результат? (Улучшило/Ухудшило/Никак не повлияло) ')
+st.write('4. Попробуйте провести несколько экспериментов с разными цифрами меняя только значения фильтра Гаусса.'
+         ' На Ваш взгляд стоит ли его использовать при корректировке изображения?')
+st.write('5. Посмотрите на черно-белое изображение где показано как "видит" цифру нейронная сеть.'
+         ' Сравните с изображениями обучающей и тестовой выборки, которые есть на картинке в начале работы.'
+         ' Насколько Ваша картинка похожа на эти изображения?')
+st.write('')
+st.write('Пожелания и замечания')            
 
 
