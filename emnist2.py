@@ -2,7 +2,7 @@ import streamlit as st
 from tensorflow.keras.models import load_model
 import numpy as np
 from PIL import Image,  ImageEnhance, ImageFilter #Отрисовка изображений
-import img_preproc
+from img_preproc import img_preprocess
 
 model_2d = load_model('/app/emnist2/model_emnist.h5')
 
