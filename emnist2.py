@@ -262,5 +262,4 @@ st.write('5. Посмотрите на черно-белое изображен�
          ' Насколько Ваша картинка похожа на эти изображения?')
 st.write('')
 st.write('Пожелания и замечания')            
-
-
+st.write('https://docs.google.com/spreadsheets/d/1GWCusE2WyCN8R7iqGaOEA9gwT6UanryXRQPo4tdID0M/edit?usp=sharing')
