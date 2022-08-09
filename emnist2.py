@@ -126,7 +126,7 @@ if choice1 == 'Видео' and img_file_buffer is not None:
             file_path = '/app/emnist2/your_file_image.png'
             im.save(file_path)
 if choice1 == 'Изображения':
-            file_path = '/app/emnist2/your_file_image1.png'
+            file_path = '/app/emnist2/your_file_image.png'
             img_pict.save(file_path)
             
             
@@ -165,6 +165,7 @@ col5,col6 = st.columns(2)
 with col5:
          value_sli = st.slider('Коррекция яркости', 0.0, 100.0, 50.0)
 with col6:
+         file_path = '/app/emnist2/your_file_image.png'
          st.write('Яркость',value_sli)
          image111 = Image.open(file_path)
          enhancer = ImageEnhance.Brightness(image111)
