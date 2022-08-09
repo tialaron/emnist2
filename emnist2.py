@@ -24,7 +24,7 @@ with st.expander('Рассмотрим как выглядят буквы и ц�
     image = Image.open('numbersletters.jpg')
     st.image(image)
 
-img_pipeline_mnist = Image.open('/app/emnist2/pictures/pipeline_for_MNIST_3.png') 
+img_pipeline_mnist = Image.open('/app/emnist2/pictures/pipeline_for_MNIST_4.png') 
 st.image(img_pipeline_mnist, use_column_width='auto', caption='Общая схема лабораторной работы') #width=450            
             
 testovic = np.load('test.npz')
