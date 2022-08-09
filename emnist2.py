@@ -150,7 +150,7 @@ with col4:
               if isbutton1:
                           y_predict1 = model_2d.predict(imgData1) 
                           y_maxarg = np.argmax(y_predict1, axis=1)
-                          st.subheader(int(y_maxarg))
+                          st.subheader(dictant1[int(y_maxarg)])
             
 col21 , col22 = st.columns(2)
 with col21:
