@@ -102,7 +102,7 @@ with col1:
             right_border = int(img_center + img_height / 2)
             img_array1 = img_array[:, left_border:right_border, :]
             im = Image.fromarray(img_array1)
-            if choice1 == 'Видео': 
+            if choice1 == 'Видео' and img_file_buffer not None: 
                         im.save(file_path)
 with col2:
             st.write('Вы можете выбрать любое изображение из предложенных ниже.')
@@ -113,7 +113,7 @@ with col2:
             img = Image.open(pict_path)
             st.image(pict_path)
             
-            if choice1 == 'Изображения':
+            if choice1 == 'Изображения' and img_file_buffer == None:
                         #pict_path = '/app/emnist2/test_pict/foto'+option1+'.png'
                         #img = Image.open(pict_path)
                         #st.image(pict_path)
