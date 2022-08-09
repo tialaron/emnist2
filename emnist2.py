@@ -111,7 +111,6 @@ with col2:
             pict_path = '/app/emnist2/test_pict/foto'+option1+'.png'
             img_pict = Image.open(pict_path)
             st.image(pict_path)
-            
 
 if choice1 == 'Видео' and img_file_buffer is not None: 
             img = Image.open(img_file_buffer)
@@ -127,6 +126,31 @@ if choice1 == 'Изображения':
             img_pict.save(file_path)
             
             
+st.write('Пункт 2.')
+st.write('Зарисуйте полученное изображение чёрно-белого изображения из окошка в бланк отчёта. '
+         'Необходимо на рисунке отобразить возникшие недочёты изображения, например, пропуски. Чтобы'
+         ' не зарисовывать всё чёрное пространство, рекомендуется изобразить ручкой на белом фоне '
+         'листа бланка отчёта.')
+
+st.write('Пункт 3.')
+st.write('Нажмите на кнопку распознавания, запишите результат.')
+isbutton1 = st.button('Распознать')
+col3, col4 = st.columns(2)
+with col3:      
+              st.write('Вот что увидела нейронная сеть.')
+              if isbutton1:
+                          image11 = Image.open(file_path)
+                          st.image(file_path) 
+                          img11 = image11.resize((28, 28), Image.LANCZOS)   
+                          img11.save(file_path)                        
+                          imgData1 = np.expand_dims(np.asarray(img11.convert("L")), axis=0)
+
+with col4:
+              st.write('Она распознала это как...')
+              if isbutton1:
+                          y_predict1 = model_2d.predict(imgData1) 
+                          y_maxarg = np.argmax(y_predict1, axis=1)
+                          st.subheader(int(y_maxarg))
             
 col21 , col22 = st.columns(2)
 with col21:
