@@ -11,7 +11,7 @@ file_path = '/app/emnist2/your_file_image.png'
 
 #st.set_page_config(layout="wide")
 st.markdown('''<h1 style='text-align: center; color: #F64A46;'
-            >Распознавание рукописных букв искусственной нейронной сетью (ИНС)</h1>''', 
+            >Распознавание рукописных букв нейронной сетью</h1>''', 
             unsafe_allow_html=True)
 
 img_start = Image.open('/app/emnist2/pictures/start_picture.png') #
