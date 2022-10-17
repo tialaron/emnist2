@@ -10,7 +10,7 @@ file_path = '/app/emnist2/your_file_image.png'
 
 
 #st.set_page_config(layout="wide")
-st.markdown('''<h1 style='text-align: center; color: #F64A46;'
+st.markdown('''<h1 style='text-align: center; color: #000000;'
             >Распознавание рукописных букв нейронной сетью</h1>''', 
             unsafe_allow_html=True)
 
